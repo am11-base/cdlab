@@ -1,0 +1,12 @@
+0a0
+0b1
+0b2
+1a1
+1a2
+1b2
+2a0
+2a1
+2b1
+exit
+
+https://www.gatevidyalay.com/converting-nfa-to-dfa-solved-examples/

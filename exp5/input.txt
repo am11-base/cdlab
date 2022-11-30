@@ -1,0 +1,16 @@
+0a1
+0b2
+1a3
+1b4
+2a4
+2b3
+3a5
+3b5
+4a5
+4b5
+5a5
+5b5
+exit
+
+
+https://www.geeksforgeeks.org/minimization-of-dfa-using-myhill-nerode-theorem/
