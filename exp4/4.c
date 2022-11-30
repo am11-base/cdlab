@@ -147,13 +147,13 @@ void converttodfa()
  int ptr=0;
  while(ptr!=queue_c)
  {
-   printf("\nptr:%d,queue_c:%d",ptr,queue_c);
+   //printf("\nptr:%d,queue_c:%d",ptr,queue_c);
   char state[10];
   memset(state,0,strlen(state));
   strcat(state,queue[ptr]);
-   printf("\nstate:%s\n",state);
+   //printf("\nstate:%s\n",state);
   int len=strlen(state);
-  printf("len:%d\n",len);
+  //printf("len:%d\n",len);
   for(int i=0;i<sym_c;i++)
   {
    char finaltrans[10]={'\0'};
@@ -169,18 +169,18 @@ void converttodfa()
      char temp2[2];
      temp2[0]=input_sym[i];
      temp2[1]='\0';
-     printf("\n inputsymbl :%s",temp2);
+    // printf("\n inputsymbl :%s",temp2);
      strcat(temp,temp2);
      removeduplicants(finaltrans);
      sort(finaltrans);
      strcat(temp,finaltrans);
 
-     printf("\nnewtrans:%s",temp);
+    // printf("\nnewtrans:%s",temp);
      if(checkifalready(finaltrans)==0)
       strcat(queue[queue_c++],finaltrans);
      strcat(dfa_transition[dfatrans_c++],temp);
-      printf("\nptr:%d,queue_c:%d",ptr,queue_c);
-       printf("\ndfatrans_c:%d",dfatrans_c);
+    //  printf("\nptr:%d,queue_c:%d",ptr,queue_c);
+    //   printf("\ndfatrans_c:%d",dfatrans_c);
    }
 
 //apply remove duplicants from finaltrans
@@ -201,7 +201,16 @@ void main()
  scanf("%c",&sym);
  while(sym!='e')
  {
-  input_sym[sym_c++]=sym;
+  input_sym[sym_c++]=0a0
+0b1
+0b2
+1a1
+1a2
+1b2
+2a0
+2a1
+2b1
+exitsym;
   scanf("%c",&sym);
  }
  input_sym[sym_c]='\0';
