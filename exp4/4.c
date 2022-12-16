@@ -201,16 +201,7 @@ void main()
  scanf("%c",&sym);
  while(sym!='e')
  {
-  input_sym[sym_c++]=0a0
-0b1
-0b2
-1a1
-1a2
-1b2
-2a0
-2a1
-2b1
-exitsym;
+  input_sym[sym_c++]=sym;
   scanf("%c",&sym);
  }
  input_sym[sym_c]='\0';

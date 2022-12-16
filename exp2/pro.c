@@ -14,6 +14,7 @@ void checkstate(char source,int add)
      dest[0]=transition[i][2];
      dest[1]='\0';
 
+      //add a condition to check if already present
      strcat(result[add],dest);
      checkstate(dest[0],add);
    }

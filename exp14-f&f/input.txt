@@ -1,0 +1,18 @@
+#5
+E=TR
+R=+TR|#
+T=FY
+Y=*FY|#
+F=(E)|i
+
+
+https://www.gatevidyalay.com/first-and-follow-compiler-design/
+P1 not working -change in first
+
+S=aBDh
+B=cC
+C=bC|#
+D=EF
+E=g|#
+F=f|#
+
