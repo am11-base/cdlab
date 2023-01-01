@@ -1,0 +1,21 @@
+#include<stdio.h>
+int isNum(char a)
+{
+   if(a == '0'||a=='1'||a=='2')
+   return 1;
+   else
+    return 0;
+
+}
+void main()
+{
+  //program to add two numbers
+  int a,b,c;
+  a = 10;
+  b=50;
+  c=a+b;
+  printf("%dhello",c);
+  /* ----------------
+     Created by Ameen
+     ----------------*/
+}

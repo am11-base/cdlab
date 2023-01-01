@@ -1,0 +1,125 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int isNum(char a)
+{
+   if(a=='0'||a=='1'||a=='2'||a=='3'||a=='4'||a=='5'||a=='6'||a=='7'||a=='8'||a=='9')
+   return 1;
+   else
+    return 0;
+
+}
+int check_operator(char ch[10])
+{
+
+  char operator[25][10]={
+      "+","-","*","/","%","=","+=","-=","/=","%=","==",">","<","!=",">=","<=","&&","||","!","&","|","^","~","<<",">>"
+   } ;
+
+   for(int i=0;i<25;i++)
+   {
+
+    if(strcmp(operator[i],ch)==0)
+     return 1;
+
+   }
+  return 0;
+}
+int check_keyword(char ch[10])
+{
+
+  char keyword[32][10]={
+      "auto","double","int","struct","break","else","long",
+      "switch","case","enum","register","typedef","char",
+      "extern","return","union","const","float","short",
+      "unsigned","continue","for","signed","void","default",
+      "goto","sizeof","voltile","do","if","static","while"
+   } ;
+
+   for(int i=0;i<32;i++)
+   {
+
+    if(strcmp(keyword[i],ch)==0)
+     return 1;
+
+   }
+  return 0;
+}
+void lexanal(char ch[50])
+{
+
+ FILE *ptr;
+ ptr=fopen("output.txt","a");
+ char a=ch[0];
+
+ if(a== '#')
+ {
+  fprintf(ptr,"<%s,preprocessor>\n",ch);
+ }
+
+ else
+ {
+  char *token;
+  char *rest = ch;
+  while((token=strtok_r(rest," ",&rest)))
+   {
+   if(token[0]=='/' && token[1]=='/')
+     break;
+    //printf("%s\n",token);
+
+    int st_key,st_op;
+    if((st_key=(check_keyword(token)))==1)
+    {
+     printf("%s is keyword\n",token);
+     fprintf(ptr,"<%s,keyword>\n",token);
+    }
+    else if((st_op=(check_operator(token)))==1)
+    {
+     printf("%s is operator\n",token);
+     fprintf(ptr,"<%s,operator>\n",token);
+    }
+
+    int flag=1,j;
+    if(isNum(token[0]))
+    {
+     char *checknum=strtok(token,";");
+     int len=strlen(checknum);
+     for(int i=1;i<len;i++)
+     {
+       if(!isNum(token[i]))
+        {
+         flag=0;
+         break;
+        }
+     }
+     if(flag==1)
+      printf("%s is integer\n",checknum);
+
+
+     if(token[len]==';')
+      printf("%c is separator ",token[len]);
+
+    }
+   }
+
+ }
+ fclose(ptr);
+}
+void main()
+{
+  FILE *ptr;
+  char ch[50];
+  ptr=fopen("sample.txt","r");
+  FILE *ptr1;
+  ptr1=fopen("output.txt","w");
+  fclose(ptr1);
+
+  while(fgets(ch,50,ptr))
+  {
+    ch[strcspn(ch,"\n")]=0;
+    //printf("%s",ch);
+    lexanal(ch);
+
+  };
+  fclose(ptr);
+}
